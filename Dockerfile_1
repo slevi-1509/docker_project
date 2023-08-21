@@ -1,6 +1,0 @@
-FROM httpd:2.4
-WORKDIR app
-COPY start.sh .
-EXPOSE 80
-RUN bash start.sh
-
