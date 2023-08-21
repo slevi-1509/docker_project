@@ -1,5 +1,11 @@
 #!/bin/bash
-echo "Hello" $NAME
-ls -la
-pwd
-sleep 20
+
+docker build -t docker-project .
+docker run -d --rm --name docker-project docker-project
+sleep 15
+if [ "$( docker container inspect -f '{{.State.Running}}' docker-project )" == "true" ]
+then
+        echo "Docker is still up, you fucked up !!!"
+else
+        echo "It's all good, man"
+fi
